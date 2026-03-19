@@ -9,7 +9,39 @@
     "name": "pi-coding-agent",
     "upstreamName": "pi",
     "entrypoint": "dist/cli.js",
-    "aliases": []
+    "aliases": [
+      {
+        "name": "pi",
+        "args": []
+      },
+      {
+        "name": "gmi",
+        "args": [
+          "--provider",
+          "google",
+          "--model",
+          "gemini-3.1-pro-preview"
+        ]
+      },
+      {
+        "name": "cc",
+        "args": [
+          "--provider",
+          "anthropic",
+          "--model",
+          "claude-opus-4-6"
+        ]
+      },
+      {
+        "name": "cod",
+        "args": [
+          "--provider",
+          "openai-codex",
+          "--model",
+          "gpt-5.4"
+        ]
+      }
+    ]
   },
   "dist": {
     "url": "https://registry.npmjs.org/@mariozechner/pi-coding-agent/-/pi-coding-agent-0.60.0.tgz",
