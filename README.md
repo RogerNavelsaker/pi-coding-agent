@@ -6,15 +6,17 @@ Nix packaging for `@mariozechner/pi-coding-agent` using Bun and `bun2nix`.
 
 - Upstream package: `@mariozechner/pi-coding-agent`
 - Pinned version: `0.60.0`
+- Description: coding agent CLI with read, bash, edit, write tools and session management
 - Installed binary: `pi-coding-agent`
 - Upstream executable invoked by Bun: `pi`
 
-## What this repo does
+## What This Repo Does
 
 - Uses `bun.lock` and generated `bun.nix` as the dependency lock surface for Nix
-- Builds an internal Bun application package with `bun2nix`
-- Exposes only the canonical binary name `pi-coding-agent`
-- Provides a GitHub Actions workflow that can sync the pinned npm version
+- Builds the upstream package as an internal Bun application with `bun2nix`
+- Exposes the canonical `pi-coding-agent` binary
+- Preserves useful alias metadata in the manifest for external wrappers
+- Provides a manifest sync script for updating the pinned npm metadata
 
 ## Files
 
@@ -23,14 +25,7 @@ Nix packaging for `@mariozechner/pi-coding-agent` using Bun and `bun2nix`.
 - `nix/package-manifest.json`: pinned package metadata and exposed binary name
 - `scripts/sync-from-npm.ts`: updates pinned npm metadata without changing the canonical output binary
 
-## Usage
-
-```bash
-nix build
-./result/bin/pi-coding-agent --help
-```
-
 ## Notes
 
-- Short aliases such as `pi` are intentionally not installed by this package.
-- If you want a short alias, create it in your shell configuration or Flox environment.
+- The default `out` output installs the longform binary name `pi-coding-agent`.
+- Wrapper commands such as `pi`, `gmi`, `cc`, and `cod` are available as separate Nix outputs, not in the default `out` output.
