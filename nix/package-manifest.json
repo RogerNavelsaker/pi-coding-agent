@@ -4,7 +4,7 @@
     "repo": "pi-coding-agent",
     "npmName": "@mariozechner/pi-coding-agent",
     "version": "0.61.0",
-    "packageRevision": 1
+    "packageRevision": 2
   },
   "binary": {
     "name": "pi-coding-agent",
@@ -40,6 +40,24 @@
           "openai-codex",
           "--model",
           "gpt-5.4"
+        ]
+      },
+      {
+        "name": "mm",
+        "args": [
+          "--provider",
+          "llmstudio",
+          "--model",
+          "minimax-m2.5"
+        ]
+      },
+      {
+        "name": "qc",
+        "args": [
+          "--provider",
+          "lmstudio",
+          "--model",
+          "qwen3.5-122b-a10b"
         ]
       }
     ]
