@@ -4,7 +4,7 @@
     "repo": "pi-coding-agent",
     "npmName": "@mariozechner/pi-coding-agent",
     "version": "0.62.0",
-    "packageRevision": 3
+    "packageRevision": 4
   },
   "binary": {
     "name": "pi-coding-agent",
