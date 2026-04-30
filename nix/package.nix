@@ -57,6 +57,10 @@ EOF
       mkdir -p "$out/libexec"
       if [ -d "$pkgDir/dist" ]; then
         cp -r "$pkgDir/dist/." "$out/libexec/"
+        # Support compiled binary layout (looks for assets relative to binary in libexec/)
+        cp -r "$pkgDir/dist/modes/interactive/theme" "$out/libexec/theme"
+        cp -r "$pkgDir/dist/modes/interactive/assets" "$out/libexec/assets"
+        cp -r "$pkgDir/dist/core/export-html" "$out/libexec/export-html"
       fi
       if [ -d "node_modules" ]; then
         cp -r node_modules "$out/libexec/node_modules"
