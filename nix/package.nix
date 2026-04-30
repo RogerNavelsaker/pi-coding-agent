@@ -89,7 +89,6 @@ EOF
       license = resolvedLicense;
       mainProgram = manifest.binary.name;
       platforms = platforms.linux ++ platforms.darwin;
-      priority = 4;
     };
   };
 in
