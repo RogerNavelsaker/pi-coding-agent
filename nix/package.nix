@@ -53,7 +53,7 @@ EOF
     module = "node_modules/${manifest.package.npmName}/${manifest.binary.entrypoint}";
     bunCompileToBytecode = false;
     postInstall = ''
-      local pkgDir="node_modules/${manifest.package.npmName}"
+      pkgDir="node_modules/${manifest.package.npmName}"
       mkdir -p "$out/libexec"
       if [ -d "$pkgDir/dist" ]; then
         cp -r "$pkgDir/dist/." "$out/libexec/"
@@ -68,7 +68,8 @@ EOF
         cp -r "$pkgDir/src/modes/interactive/assets" "$out/libexec/src/modes/interactive/assets"
       fi
       mkdir -p "$out/share/${manifest.package.repo}/global/node_modules"
-      cat > "$out/libexec/bun" <<EOF
+      mkdir -p "$out/libexec/bin"
+      cat > "$out/libexec/bin/bun" <<EOF
 #!${lib.getExe bash}
 if [ "\$1" = "root" ] && [ "\$2" = "-g" ]; then
   printf '%s\n' "$out/share/${manifest.package.repo}/global/node_modules"
@@ -76,10 +77,10 @@ if [ "\$1" = "root" ] && [ "\$2" = "-g" ]; then
 fi
 exec ${lib.getExe' bun "bun"} "\$@"
 EOF
-      chmod +x "$out/libexec/bun"
+      chmod +x "$out/libexec/bin/bun"
       cat > "$out/bin/${manifest.binary.name}" <<EOF
 #!${lib.getExe bash}
-export PATH="$out/libexec''${PATH:+:$PATH}"
+export PATH="$out/libexec/bin''${PATH:+:$PATH}"
 exec "$out/libexec/${manifest.binary.name}" "\$@"
 EOF
       chmod +x "$out/bin/${manifest.binary.name}"
