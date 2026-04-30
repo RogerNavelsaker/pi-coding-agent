@@ -54,19 +54,15 @@ EOF
     bunCompileToBytecode = false;
     postInstall = ''
       mkdir -p "$out/libexec"
+      cp -R "$pkgDir/dist/"* "$out/libexec/"
+      cp -R node_modules "$out/libexec/node_modules"
       mv "$out/bin/${manifest.binary.name}" "$out/libexec/${manifest.binary.name}"
-      local pkgDir="node_modules/${manifest.package.npmName}"
       cp "$pkgDir/package.json" "$out/libexec/package.json"
-      if [ -d "$pkgDir/dist/modes/interactive/assets" ]; then
-        mkdir -p "$out/libexec/dist/modes/interactive"
-        cp -R "$pkgDir/dist/modes/interactive/assets" "$out/libexec/dist/modes/interactive/assets"
-      fi
       if [ -d "$pkgDir/src/modes/interactive/assets" ]; then
         mkdir -p "$out/libexec/src/modes/interactive"
         cp -R "$pkgDir/src/modes/interactive/assets" "$out/libexec/src/modes/interactive/assets"
       fi
       mkdir -p "$out/share/${manifest.package.repo}/global/node_modules"
-      mkdir -p "$out/libexec"
       cat > "$out/libexec/bun" <<EOF
 #!${lib.getExe bash}
 if [ "\$1" = "root" ] && [ "\$2" = "-g" ]; then
