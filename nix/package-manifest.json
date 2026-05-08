@@ -2,8 +2,8 @@
   "stubbed": false,
   "package": {
     "repo": "pi-coding-agent",
-    "npmName": "@mariozechner/pi-coding-agent",
-    "version": "0.73.1",
+    "npmName": "@earendil-works/pi-coding-agent",
+    "version": "0.74.0",
     "packageRevision": 4
   },
   "binary": {
@@ -45,12 +45,12 @@
     ]
   },
   "dist": {
-    "url": "https://registry.npmjs.org/@mariozechner/pi-coding-agent/-/pi-coding-agent-0.73.1.tgz",
-    "hash": "sha512-gXQh3SaZmWTfVMc4Ao5+LGbVeKvzyO7tolok0nLsZgq9nGjZx/EEU3NM8C+qUnB4Nvs2rswG5qOVgLzQkq0fHQ=="
+    "url": "https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-0.74.0.tgz",
+    "hash": "sha512-Q5GikbB5vRBrsrrf/uvet53rPSQ1sn5I5mO+l7sIobdXYpS04/X2oOc2UHFm90fNdkl3yU+ANTZL0zOtHbnqRw=="
   },
   "meta": {
     "description": "Coding agent CLI with read, bash, edit, write tools and session management",
-    "homepage": "https://github.com/badlogic/pi-mono#readme",
+    "homepage": "https://github.com/earendil-works/pi-mono#readme",
     "licenseSpdx": "MIT"
   }
 }
